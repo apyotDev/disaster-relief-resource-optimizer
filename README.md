@@ -1,321 +1,90 @@
-# 🌍 Disaster Relief Resource Optimizer
+---
 
-> An AI-powered decision support system that predicts disaster relief priority using machine learning and provides an interactive geospatial dashboard for emergency response planning.
+# 📊 Results & Model Evaluation
 
-![Python](https://img.shields.io/badge/Python-3.11-blue)
-![FastAPI](https://img.shields.io/badge/FastAPI-Backend-009688)
-![React](https://img.shields.io/badge/React-Frontend-61DAFB)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Database-336791)
-![XGBoost](https://img.shields.io/badge/XGBoost-Machine%20Learning-green)
-![Docker](https://img.shields.io/badge/Docker-Containerized-2496ED)
+The XGBoost model was evaluated using multiple performance metrics and visualization techniques to ensure reliable disaster relief priority classification.
+
+## 🎯 Model Performance
+
+| Metric | Score |
+|---------|------:|
+| Accuracy | **97.98%** |
+| Precision | **97.98%** |
+| Recall | **97.98%** |
+| F1 Score | **97.98%** |
+
+> *The model demonstrates excellent classification performance across all three relief priority classes.*
 
 ---
 
-# 📖 Overview
+## 🔥 Confusion Matrix
 
-Natural disasters such as typhoons, floods, earthquakes, and landslides frequently affect communities in the Philippines. Emergency responders often need to determine which incidents require immediate attention and how available resources should be allocated efficiently.
+The confusion matrix illustrates the classification performance of the model by comparing predicted and actual relief priority classes.
 
-The **Disaster Relief Resource Optimizer** is an AI-driven decision support system designed to assist disaster management agencies by automatically predicting the relief priority of reported incidents using historical disaster data and machine learning.
+<p align="center">
+    <img src="reports/confusion_matrix.png" width="700">
+</p>
 
-Instead of relying solely on manual assessment, the system analyzes disaster-related indicators and provides an objective prediction of the incident's priority level, enabling faster and more informed decision-making.
+**Observations**
 
----
-
-# 🎯 Problem Statement
-
-Emergency response teams often face challenges such as:
-
-- Delayed prioritization of disaster incidents
-- Limited emergency resources
-- Increasing number of simultaneous disasters
-- Subjective assessment of incident severity
-- Difficulty identifying which locations require immediate assistance
-
-These challenges can delay disaster response and reduce the effectiveness of relief operations.
+- High Priority incidents were classified with very high accuracy.
+- Low Priority incidents achieved perfect prediction in most cases.
+- Only a few Medium Priority incidents were misclassified.
+- Overall, the model shows excellent class separation with minimal prediction errors.
 
 ---
 
-# 💡 Proposed Solution
+## 📈 Feature Importance
 
-This project utilizes a supervised machine learning model trained on historical disaster data to classify incidents into:
+Feature importance identifies which disaster indicators contribute the most to relief priority prediction.
 
-- 🟢 Low Priority
-- 🟡 Medium Priority
-- 🔴 High Priority
+<p align="center">
+    <img src="reports/feature_importance.png" width="700">
+</p>
 
-The prediction is based on several disaster-related indicators, allowing emergency personnel to quickly determine which incidents require immediate response.
+### Key Findings
 
-The system also stores prediction results in a PostgreSQL database and visualizes disaster information through an interactive web dashboard.
+| Rank | Feature | Importance |
+|------|---------|-----------:|
+| 1 | affected_rate | ⭐ Highest |
+| 2 | damage_rate | High |
+| 3 | duration | Moderate |
+| 4 | homeless_rate | Moderate |
+| 5 | disaster_type | Low |
+| 6 | casualty_rate | Lowest |
 
----
-
-# 🚀 Features
-
-## 🤖 Machine Learning Prediction
-
-- Relief Priority Prediction
-- Prediction Probability (Confidence Score)
-- Multi-class Classification
-- XGBoost Model
+The model primarily relies on the proportion of affected individuals and infrastructure damage when determining disaster relief priority.
 
 ---
 
-## 📍 Incident Management
+## 📊 Correlation Heatmap
 
-- Create Incident Reports
-- Update Incident Status
-- Store Predictions
-- Historical Incident Records
+The correlation heatmap illustrates relationships among disaster-related variables used during model training.
 
----
+<p align="center">
+    <img src="reports/correlation_heatmap.png" width="700">
+</p>
 
-## 📊 Analytics Dashboard
+### Observations
 
-- Active Incidents Overview
-- Disaster Distribution
-- Relief Priority Distribution
-- Prediction History
-- Feature Importance Visualization
-- Correlation Analysis
+- **Affected Rate** has a strong positive correlation with **Damage Rate** (**0.76**).
+- **Duration** is positively correlated with **Casualty Rate** (**0.73**).
+- **Homeless Rate** moderately correlates with **Damage Rate** (**0.53**).
+- Most remaining features show weak correlations, indicating they contribute unique information to the prediction model.
 
 ---
 
-## 🗺 Interactive GIS Map
+## 📌 Model Insights
 
-Visualize disaster incidents across the Philippines using an interactive map.
+The trained XGBoost classifier learned that disaster relief priority is primarily influenced by:
 
-Features include:
+- Population affected
+- Infrastructure damage
+- Disaster duration
+- Number of displaced residents
+- Disaster type
+- Casualty rate
 
-- Incident markers
-- Priority color coding
-- Disaster clustering
-- Geographic visualization
-- Incident information popup
-
----
-
-# 🧠 Machine Learning Pipeline
-
-```
-Historical Disaster Dataset
-            │
-            ▼
-     Data Cleaning
-            │
-            ▼
- Feature Engineering
-            │
-            ▼
- Label Encoding
-            │
-            ▼
- Train/Test Split
-            │
-            ▼
-     XGBoost Classifier
-            │
-            ▼
- Relief Priority Prediction
-            │
-            ▼
- Probability Estimation
-            │
-            ▼
- FastAPI REST API
-```
+These findings align with real-world disaster response strategies where highly affected populations and severe infrastructure damage typically require immediate resource allocation.
 
 ---
-
-# 📊 Features Used
-
-The model predicts disaster relief priority using the following features:
-
-| Feature       | Description                        |
-| ------------- | ---------------------------------- |
-| affected_rate | Percentage of affected population  |
-| damage_rate   | Infrastructure damage ratio        |
-| homeless_rate | Percentage of displaced population |
-| casualty_rate | Injury/Fatality ratio              |
-| duration      | Disaster duration                  |
-| disaster_type | Disaster category                  |
-
----
-
-# 🛠 Technology Stack
-
-## Backend
-
-- FastAPI
-- SQLAlchemy
-- PostgreSQL
-- Pydantic
-- Alembic
-- Uvicorn
-
----
-
-## Machine Learning
-
-- XGBoost
-- Scikit-learn
-- Pandas
-- NumPy
-- Matplotlib
-- Seaborn
-
----
-
-## Frontend
-
-- React
-- Tailwind CSS
-- Leaflet.js
-- React Router
-- Axios
-- Recharts
-
----
-
-## DevOps
-
-- Docker
-- Docker Compose
-- Git
-- GitHub
-
----
-
-# 📈 Model Performance
-
-The trained XGBoost classifier achieved excellent performance in classifying disaster relief priority.
-
-Evaluation includes:
-
-- Accuracy
-- Precision
-- Recall
-- F1 Score
-- Confusion Matrix
-- Feature Importance
-- Correlation Analysis
-
----
-
-# 📂 Project Structure
-
-```text
-disaster_relief/
-│
-├── app/
-│   ├── api/
-│   ├── models/
-│   ├── schemas/
-│   ├── services/
-│   ├── routers/
-│   ├── utils/
-│   └── main.py
-│
-├── model_weights/
-│
-├── frontend/
-│
-├── notebooks/
-│
-├── reports/
-│
-├── tests/
-│
-├── Dockerfile
-├── docker-compose.yml
-├── requirements.txt
-└── README.md
-```
-
----
-
-# 🔌 REST API
-
-## Prediction
-
-```
-POST /disaster_relief_optimizer/predict
-```
-
-Predicts the relief priority of a disaster incident.
-
----
-
-## Update Incident Status
-
-```
-PUT /disaster_relief_optimizer/{incident_id}/status
-```
-
-Updates the current status of an incident.
-
----
-
-## Sample Prediction Response
-
-```json
-{
-  "status": "success",
-  "status_code": 201,
-  "message": "Incident predicted successfully.",
-  "data": {
-    "incident_id": 15,
-    "prediction": {
-      "relief_priority": "High",
-      "probability": 0.99997
-    }
-  }
-}
-```
-
----
-
-# 📷 Dashboard
-
-The web dashboard provides:
-
-- 📍 Interactive Philippine Disaster Map
-- 📊 Disaster Analytics
-- 📈 Priority Distribution
-- 📋 Incident Management
-- 🤖 AI Predictions
-- 📉 Feature Importance
-- 📌 Correlation Heatmap
-
----
-
-# 🎯 Future Improvements
-
-- Live Weather API Integration
-- Satellite Data Integration
-- Real-time Disaster Monitoring
-- SMS Notification System
-- Resource Optimization Engine
-- Route Optimization
-- Multi-user Authentication
-- Mobile Application
-
----
-
-# 👨‍💻 Author
-
-**Alfred Quinto Yap**
-
-Bachelor of Science in Computer Science
-
-Interested in:
-
-- Artificial Intelligence
-- Machine Learning
-- Data Science
-- Computer Vision
-- Full Stack Development
-
-GitHub: https://github.com/apyotDev
-
-LinkedIn: https://linkedin.com/in/alfred-yap
-
