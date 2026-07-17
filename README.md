@@ -199,7 +199,7 @@ Explain what the confusion matrix shows.
 
 ## 📈 Feature Importance
 
-![Feature Importance](reports/figures/feature_influence.png)
+![Feature Importance](reports/figures/feature_influence_analysis.png)
 
 Explain the most influential features.
 
@@ -207,41 +207,9 @@ Explain the most influential features.
 
 ## 📊 Correlation Heatmap
 
-![Correlation Heatmap](reports/figures/correlation_heatmap.png)
+![Correlation Heatmap](reports/figures/correlation_matrix.png)
 
 Discuss the relationships among the features.
-
----
-
-# 📷 Dashboard Preview
-
-## Dashboard
-
-![Dashboard](reports/dashboard.png)
-
----
-
-## Prediction Page
-
-![Prediction](reports/prediction.png)
-
----
-
-## Incidents
-
-![Incidents](reports/incidents.png)
-
----
-
-## Analytics
-
-![Analytics](reports/analytics.png)
-
----
-
-## Philippine GIS Map
-
-![GIS Map](reports/map.png)
 
 ---
 
