@@ -319,8 +319,3 @@ GitHub: https://github.com/apyotDev
 
 LinkedIn: https://linkedin.com/in/alfred-yap
 
----
-
-# 📜 License
-
-This project is intended for academic, research, and educational purposes.
