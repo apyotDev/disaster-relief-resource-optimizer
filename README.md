@@ -193,7 +193,7 @@ REST API
 
 ![Confusion Matrix](reports/figures/confusion_matrix.png)
 
-Explain what the confusion matrix shows.
+The **Confusion Matrix** provides a detailed evaluation of the XGBoost model's classification performance by comparing the predicted relief priority against the actual priority labels. Most predictions are concentrated along the diagonal of the matrix, indicating that the model correctly classified the majority of disaster incidents into their respective **Low**, **Medium**, and **High** priority categories. The small number of off-diagonal values represents misclassified instances, demonstrating that the model has a low error rate and effectively distinguishes between different levels of disaster severity. This result confirms the model's reliability and suitability as a decision support tool for disaster relief prioritization.
 
 ---
 
@@ -201,7 +201,7 @@ Explain what the confusion matrix shows.
 
 ![Feature Importance](reports/figures/feature_influence_analysis.png)
 
-Explain the most influential features.
+The **Feature Importance** analysis identifies the variables that contribute most to the XGBoost model's predictions of disaster relief priority. Among the features, **affected rate**, **damage rate**, and **homeless rate** were the most influential, indicating that the scale of population impact and infrastructure damage plays a significant role in determining the urgency of disaster response. Features such as **casualty rate**, **disaster duration**, and **disaster type** also contributed to the model's decision-making, although to a lesser extent. This analysis demonstrates that the model relies on meaningful disaster-related indicators rather than random patterns, improving both the interpretability and reliability of its predictions for supporting emergency response planning.
 
 ---
 
@@ -209,8 +209,14 @@ Explain the most influential features.
 
 ![Correlation Heatmap](reports/figures/correlation_matrix.png)
 
-Discuss the relationships among the features.
+The **Correlation Heatmap** illustrates the relationships among the disaster-related features used in the model. It reveals the strength and direction of correlations between variables such as **affected rate**, **damage rate**, **homeless rate**, **casualty rate**, and **disaster duration**. Strong positive correlations indicate that certain features tend to increase together, while weak or negative correlations suggest greater independence between variables. Understanding these relationships helps identify potential multicollinearity, ensures that each feature contributes meaningful information to the model, and provides insight into how different disaster indicators collectively influence relief priority predictions.
 
+---
+# 📷 Dashboard Preview
+
+## Dashboard
+
+![Dashboard](reports/dashboard.png)
 ---
 
 # 🚀 REST API
