@@ -223,7 +223,7 @@ The **Correlation Heatmap** illustrates the relationships among the disaster-rel
 
 ### GET
 ```
-/disaster-relief-optimize/predict
+/disaster-relief-optimize/incidents
 ```
 
 ### POST
