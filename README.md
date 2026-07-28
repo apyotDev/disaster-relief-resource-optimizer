@@ -224,13 +224,13 @@ The **Correlation Heatmap** illustrates the relationships among the disaster-rel
 ### POST
 
 ```
-/disaster_relief_optimizer/predict
+/disaster-relief-optimize/predict
 ```
 
 ### PUT
 
 ```
-/disaster_relief_optimizer/{id}/status
+/disaster-relief-optimize/{id}/status
 ```
 
 ---
