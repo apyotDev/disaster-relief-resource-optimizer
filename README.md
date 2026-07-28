@@ -221,6 +221,11 @@ The **Correlation Heatmap** illustrates the relationships among the disaster-rel
 
 # 🚀 REST API
 
+### GET
+```
+/disaster-relief-optimize/predict
+```
+
 ### POST
 
 ```
